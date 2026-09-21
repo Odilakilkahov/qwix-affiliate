@@ -1,0 +1,6 @@
+---
+import { getCollection } from 'astro:content';
+export async function getStaticPaths(){return (await getCollection('offers')).filter(x=>x.data.status==='active').map(x=>({params:{slug:x.data.slug},props:{offer:x.data}}));}
+const { offer }=Astro.props;
+---
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="referrer" content="strict-origin-when-cross-origin"/><meta http-equiv="refresh" content={`0;url=${offer.destinationUrl}`}/><title>Leaving this site</title></head><body><p>Continuing to <a href={offer.destinationUrl} rel="sponsored nofollow noopener">{offer.program}</a>…</p><script define:vars={{slug:offer.slug,destination:offer.destinationUrl}}>import { trackAffiliateClick } from '../../lib/track'; trackAffiliateClick(slug); window.location.replace(destination);</script></body></html>

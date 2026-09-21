@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.astro/
+.npm-cache/
+.cache/
+.env
+*.log
+*.err
+codex-*.last.txt

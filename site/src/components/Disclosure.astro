@@ -1,0 +1,6 @@
+---
+interface Props { text?: string }
+const { text = 'This page may contain affiliate links. If you choose to use one, we may earn a commission at no extra cost to you.' } = Astro.props;
+---
+<aside class="disclosure" aria-label="Affiliate disclosure"><strong>Affiliate disclosure</strong><span>{text}</span></aside>
+<style>.disclosure{border:1px solid var(--line);background:var(--surface);padding:1rem;display:grid;gap:.3rem;font-size:.92rem;line-height:1.45}.disclosure strong{color:var(--plum)}</style>

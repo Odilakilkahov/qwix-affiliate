@@ -1,0 +1,8 @@
+<button class="theme-toggle" aria-label="Toggle color theme" type="button">Theme</button>
+<script>
+  const root = document.documentElement;
+  const stored = localStorage.getItem('theme');
+  if (stored === 'dark' || (!stored && matchMedia('(prefers-color-scheme: dark)').matches)) root.classList.add('dark');
+  document.querySelector('.theme-toggle')?.addEventListener('click', () => { root.classList.toggle('dark'); localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light'); });
+</script>
+<style>.theme-toggle{border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--ink);padding:.42rem .7rem;font:inherit;font-size:.82rem;cursor:pointer}</style>

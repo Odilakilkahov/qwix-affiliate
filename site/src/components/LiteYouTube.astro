@@ -1,0 +1,8 @@
+---
+const { id, title } = Astro.props;
+---
+<button class="video" type="button" data-id={id} aria-label={`Play ${title} on YouTube`}><span>Watch on YouTube</span></button>
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.video').forEach((button) => button.addEventListener('click', () => { const iframe=document.createElement('iframe'); iframe.src=`https://www.youtube-nocookie.com/embed/${button.dataset.id}?autoplay=1`; iframe.title='YouTube video'; iframe.allow='autoplay; encrypted-media; picture-in-picture'; iframe.allowFullscreen=true; button.replaceWith(iframe); }));
+</script>
+<style>.video{width:100%;aspect-ratio:16/9;border:1px solid var(--line);background:var(--surface);color:var(--plum);font:inherit;font-weight:700;cursor:pointer}.video:hover{background:var(--plum);color:var(--bg)}iframe{width:100%;aspect-ratio:16/9;border:0}</style>
