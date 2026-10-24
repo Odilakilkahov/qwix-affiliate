@@ -11,3 +11,13 @@ codex-*.last.txt
 # secrets (security 2026-10-23)
 .env.*
 !.env.example
+
+# backup hygiene (2026-10-23)
+*.session
+*.session-journal
+.accounts.md
+**/profile/
+**/profile-*/
+**/node_modules/
+**/.venv/
+**/__pycache__/
