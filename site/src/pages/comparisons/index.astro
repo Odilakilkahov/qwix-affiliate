@@ -1,5 +1,5 @@
 ---
-import Base from '../../layouts/Base.astro'; import { published } from '../../lib/content'; const entries=await published('comparisons');
+import Base from '../../layouts/Base.astro'; import { published } from '../../lib/content'; import { base } from '../../config/site'; const entries=await published('comparisons');
 ---
-<Base title="Comparisons"><section class="shell listing"><p>Comparisons</p><h1>See the fit before you buy.</h1>{entries.length ? <div>{entries.map(entry => <article><a href={`/comparisons/${entry.id}/`}><h2>{entry.data.title}</h2><p>{entry.data.description}</p><span>Compare tools →</span></a></article>)}</div> : <p>No published comparisons yet.</p>}</section></Base>
+<Base title="Comparisons"><section class="shell listing"><p>Comparisons</p><h1>See the fit before you buy.</h1>{entries.length ? <div>{entries.map(entry => <article><a href={`${base}comparisons/${entry.id}/`}><h2>{entry.data.title}</h2><p>{entry.data.description}</p><span>Compare tools →</span></a></article>)}</div> : <p>No published comparisons yet.</p>}</section></Base>
 <style>.listing{padding:5rem 0;max-width:850px}.listing>p:first-child{color:var(--plum);font-weight:700}.listing h1{font-size:clamp(2.6rem,6vw,4.8rem);margin:.5rem 0 4rem}.listing article{border-top:1px solid var(--line);padding:1.7rem 0}.listing article a{text-decoration:none}.listing h2{font-size:1.6rem;margin:0}.listing p{color:var(--muted);line-height:1.55}.listing span{color:var(--plum);font-weight:700}</style>

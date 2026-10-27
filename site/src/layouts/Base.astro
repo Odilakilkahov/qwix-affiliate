@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { site } from '../config/site';
+import { site, base } from '../config/site';
 import ThemeToggle from '../components/ThemeToggle.astro';
 interface Props { title?: string; description?: string; canonical?: string; jsonLd?: Record<string, unknown> }
 const { title, description = site.tagline, canonical = Astro.url.href, jsonLd } = Astro.props;
@@ -8,5 +8,5 @@ const pageTitle = title ? `${title} | ${site.name}` : `${site.name} — ${site.t
 ---
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width"/><title>{pageTitle}</title><meta name="description" content={description}/><link rel="canonical" href={canonical}/><meta property="og:type" content="website"/><meta property="og:site_name" content={site.name}/><meta property="og:title" content={pageTitle}/><meta property="og:description" content={description}/><meta property="og:url" content={canonical}/>{jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}</head>
-<body><header class="shell header"><a class="brand" href="/">{site.name}</a><nav aria-label="Main navigation"><a href="/reviews">Reviews</a><a href="/comparisons">Comparisons</a><a href="/how-we-test">Method</a></nav><ThemeToggle /></header><main><slot /></main><footer class="shell footer"><span>{site.name} · useful tools, clearly explained.</span><nav><a href="/disclosure">Disclosure</a><a href="/privacy">Privacy</a><a href="/contact">Contact</a></nav></footer></body></html>
+<body><header class="shell header"><a class="brand" href={base}>{site.name}</a><nav aria-label="Main navigation"><a href={`${base}reviews`}>Reviews</a><a href={`${base}comparisons`}>Comparisons</a><a href={`${base}how-we-test`}>Method</a></nav><ThemeToggle /></header><main><slot /></main><footer class="shell footer"><span>{site.name} · useful tools, clearly explained.</span><nav><a href={`${base}disclosure`}>Disclosure</a><a href={`${base}privacy`}>Privacy</a><a href={`${base}contact`}>Contact</a></nav></footer></body></html>
 <style>.header{min-height:4.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;border-bottom:1px solid var(--line)}.brand{color:var(--plum);font-weight:800;text-decoration:none;letter-spacing:-.04em}.header nav,.footer nav{display:flex;gap:1rem;flex-wrap:wrap}.header nav a,.footer a{font-size:.9rem;text-decoration:none}.footer{border-top:1px solid var(--line);margin-top:5rem;padding:1.5rem 0;display:flex;justify-content:space-between;gap:1rem;color:var(--muted);font-size:.85rem}@media(max-width:600px){.header nav{display:none}.footer{display:grid}}</style>

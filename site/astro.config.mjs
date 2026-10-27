@@ -5,7 +5,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   output: 'static',
-  site: 'https://smallteamstack.example',
+  site: 'https://odilakilkahov.github.io',
+  base: '/qwix-affiliate/',
   integrations: [mdx(), sitemap()],
   vite: { plugins: [tailwindcss()] },
 });

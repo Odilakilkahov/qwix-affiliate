@@ -1,4 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { base } from '../config/site';
+const email = 'akilkhanovodil@gmail.com';
 ---
-<Base title="Contact"><section class="shell draft"><p>DRAFT — TO BE WRITTEN BY CLAUDE</p><h1>Contact</h1><p>This page is reserved for approved contact details.</p></section></Base><style>.draft{max-width:750px;padding:5rem 0}.draft>p:first-child{color:var(--plum);font-weight:700}.draft h1{font-size:clamp(2.5rem,6vw,4.5rem)}.draft p{line-height:1.7}</style>
+<Base title="Contact"><section class="shell simple"><h1>Contact</h1><p>The fastest way to reach us is email: <a href={`mailto:${email}`}>{email}</a>.</p><h2>What to write to us about</h2><ul><li>A factual correction on a review or comparison — what is wrong and your source.</li><li>A product you think we should test, and why it fits small teams.</li><li>An affiliate or partnership inquiry.</li><li>A privacy or data request related to the <a href={`${base}privacy`}>privacy page</a>.</li></ul><p>We read every message ourselves. We do not run a support team, so replies can take a few days — if it is urgent, say so in the subject line.</p></section></Base><style>.simple{max-width:750px;padding:5rem 0}.simple h1{font-size:clamp(2.5rem,6vw,4.5rem)}.simple h2{font-size:1.5rem;margin-top:2.5rem}.simple p,.simple li{line-height:1.7;font-size:1.05rem}.simple ul{padding-left:1.3rem;display:grid;gap:.5rem}</style>
